@@ -1,0 +1,22 @@
+DROP STAGE IF EXISTS DEMO.DEMO_SCHEMA.AZURE_STAGE;
+
+DROP INTEGRATION IF EXISTS azure_int;
+
+
+CREATE STORAGE INTEGRATION azure_int
+  TYPE = EXTERNAL_STAGE
+  STORAGE_PROVIDER = 'AZURE'
+  ENABLED = TRUE
+  AZURE_TENANT_ID = '5942a6fd-572f-4826-8889-fcabf9eccc4e'
+  STORAGE_ALLOWED_LOCATIONS = (
+    'azure://azuresnowconnection0.blob.core.windows.net/snowa-azure'
+  );
+
+DESCRIBE INTEGRATION azure_int;
+
+CREATE STAGE DEMO.DEMO_SCHEMA.AZURE_STAGE
+  STORAGE_INTEGRATION = azure_int
+  URL = 'azure://azuresnowconnection0.blob.core.windows.net/snowa-azure/';
+
+
+LIST @DEMO.DEMO_SCHEMA.AZURE_STAGE;
