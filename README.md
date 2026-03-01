@@ -24,7 +24,7 @@ This ensures a stable environment for automated ETL processes.
 
 ## dbt Run & Transformation
 
-![dbt Run](images/Snowflake_2_dbt_ run.png)
+![dbt Run](images/Snowflake_2_dbt_run.png)
 
 Once the connection is established, **dbt** runs the transformation pipeline:
 
